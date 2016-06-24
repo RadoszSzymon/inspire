@@ -1,3 +1,12 @@
 %h1= @post.title
 %p= @post.link
 %p= @post.description
+
+= link_to "Edit", edit_post_path(@post)
+-#przy root_path nie daje argumentu
+-#bo odnosi sie to do calosci, a edit odnosi sie do konkretnego postu
+
+-#method: :delete odpowiedzialna jest za usuniecie tego konkretnego @post po potwierdzeniu
+= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"}
+
+= link_to "Home", root_path
