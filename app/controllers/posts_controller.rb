@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :upate, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     #zmienna @posts zawiera wszystkie posty ulozone od najnowszego
@@ -10,12 +11,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
     #tworze nowy post przypisany do zmiennej @post z post_params
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     #jesli uda sie zapisac(wszystko bedzie ok) to przechodze do tego postu
     if @post.save
