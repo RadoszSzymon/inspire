@@ -1,17 +1,30 @@
 = image_tag @post.image.url(:medium)
 
 %h1= @post.title
+.btn.btn-default
+  = link_to "Edit", edit_post_path(@post)
+  -#przy root_path nie daje argumentu
+  -#bo odnosi sie to do calosci, a edit odnosi sie do konkretnego postu
+.btn.btn-default
+  -#method: :delete odpowiedzialna jest za usuniecie tego konkretnego @post po potwierdzeniu
+  = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"}
 %p= @post.link
 %p= @post.description
 %p= @post.user.name
 %p
   = @post.get_upvotes.size
+  =fa_icon "thumbs-o-up"
   Likes
 %p
   = @post.get_downvotes.size
+  =fa_icon "thumbs-o-down"
   Dislikes
-= link_to "Like", like_post_path(@post), method: :get
-= link_to "Dislike", dislike_post_path(@post), method: :get
+.btn.btn-default
+  =fa_icon "thumbs-o-up"
+  = link_to "Like", like_post_path(@post), method: :get
+.btn.btn-default
+  =fa_icon "thumbs-o-down"
+  = link_to "Dislike", dislike_post_path(@post), method: :get
 
 #comment
   %h2.comment_count= pluralize(@post.comments.count, "Comment")
@@ -21,12 +34,3 @@
       %p.content= comment.content
 
   = render 'comments/form'
-
-= link_to "Edit", edit_post_path(@post)
--#przy root_path nie daje argumentu
--#bo odnosi sie to do calosci, a edit odnosi sie do konkretnego postu
-
--#method: :delete odpowiedzialna jest za usuniecie tego konkretnego @post po potwierdzeniu
-= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"}
-
-= link_to "Home", root_path
