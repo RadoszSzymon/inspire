@@ -1,45 +1,100 @@
-%h1= @post.title
-%p.username
-  Added by
-  = @post.user.name
-  = time_ago_in_words(@post.created_at)
-  = link_to "Link", @post.link, class: "btn btn-default"
+.row.post_row
+  .col-md-8.main_post_content
+    %h1= @post.title
+    %p.username
+      Added by
+      = @post.user.name
+      = time_ago_in_words(@post.created_at)
 
-= image_tag @post.image.url(:medium)
+    = link_to "See inspiration", @post.link, class: "btn btn-default link_to_post"
 
-.options
-- if @post.user == current_user
-  .btn.btn-default
-    = link_to "Edit", edit_post_path(@post)
-    -#przy root_path nie daje argumentu
-    -#bo odnosi sie to do calosci, a edit odnosi sie do konkretnego postu
-  .btn.btn-default
-    -#method: :delete odpowiedzialna jest za usuniecie tego konkretnego @post po potwierdzeniu
-    = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"}
+    = image_tag @post.image.url(:medium)
 
-%p= @post.description
-%p
-  = @post.get_upvotes.size
-  =fa_icon "thumbs-o-up"
-  Likes
-%p
-  = @post.get_downvotes.size
-  =fa_icon "thumbs-o-down"
-  Dislikes
-.btn.btn-default
-  = link_to like_post_path(@post), method: :get, class: "data" do
-    %i.fa.fa-thumbs-o-up
-    =pluralize(@post.get_upvotes.size, "Like")
-.btn.btn-default
-  = link_to dislike_post_path(@post), method: :get, class: "data" do
-    %i.fa.fa-thumbs-o-down
-    =pluralize(@post.get_downvotes.size, "Dislike")
+    .options
+    - if @post.user == current_user
+      .btn.btn-default
+        = link_to "Edit", edit_post_path(@post)
+        -#przy root_path nie daje argumentu
+        -#bo odnosi sie to do calosci, a edit odnosi sie do konkretnego postu
+      .btn.btn-default
+        -#method: :delete odpowiedzialna jest za usuniecie tego konkretnego @post po potwierdzeniu
+        = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?"}
+    .post_description
+      %p= @post.description
+    .voting_statistics
+      %p
+        = @post.get_upvotes.size
+        =fa_icon "thumbs-o-up"
+        Likes
+      %p
+        = @post.get_downvotes.size
+        =fa_icon "thumbs-o-down"
+        Dislikes
+    %h3 Do you like it?
+    .btn.btn-default
+      = link_to like_post_path(@post), method: :get, class: "data" do
+        %i.fa.fa-thumbs-o-up
+        =pluralize(@post.get_upvotes.size, "Like")
+    .btn.btn-default
+      = link_to dislike_post_path(@post), method: :get, class: "data" do
+        %i.fa.fa-thumbs-o-down
+        =pluralize(@post.get_downvotes.size, "Dislike")
 
-#comment
-  %h2.comment_count= pluralize(@post.comments.count, "Comment")
-  - @comments.each do |comment|
-    .comment
-      %p.username= comment.user.name
-      %p.content= comment.content
+    #comment
+      %h2.comment_count= pluralize(@post.comments.count, "Comment")
+      - @comments.each do |comment|
+        .comment
+          %p.username= comment.user.name
+          %p.content= comment.content
 
-  = render 'comments/form'
+    - if user_signed_in?
+      = render 'comments/form'
+
+  .col-md-4.posts_panel
+    %h2 You can like also
+
+    .first_extra_post
+      = link_to (image_tag @random_post.image.url(:small)), post_path(@random_post)
+      %h3
+        =link_to @random_post.title, post_path(@random_post)
+      %p
+        Added by
+        = @random_post.user.name
+      %p
+        = @random_post.comments.count
+        =fa_icon "comment-o"
+        Comments
+      %p
+        = @random_post.get_likes.size
+        =fa_icon "thumbs-o-up"
+        Likes
+    .second_extra_post
+      = link_to (image_tag @random_post2.image.url(:small)), post_path(@random_post2)
+      %h3
+        =link_to @random_post2.title, post_path(@random_post2)
+      %p
+        Added by
+        = @random_post2.user.name
+      %p
+        = @random_post2.comments.count
+        =fa_icon "comment-o"
+        Comments
+      %p
+        = @random_post2.get_likes.size
+        =fa_icon "thumbs-o-up"
+        Likes
+    .third_extra_post
+      = link_to (image_tag @random_post3.image.url(:small)), post_path(@random_post3)
+      %h3
+        =link_to @random_post3.title, post_path(@random_post3)
+      %p
+        Added by
+        = @random_post3.user.name
+      %p
+        = @random_post3.comments.count
+        =fa_icon "comment-o"
+        Comments
+      %p
+        = @random_post3.get_likes.size
+        =fa_icon "thumbs-o-up"
+        Likes

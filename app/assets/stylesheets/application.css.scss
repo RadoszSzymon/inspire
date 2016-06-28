@@ -25,13 +25,60 @@
    text-decoration: none;
 }
 
+.navbar-default, .alert{
+  margin:0;
+}
+
 .container{
   .row{
+    .welcome{
+      text-align: center;
+      padding-bottom: 1em;
+      h2{
+        font-weight: 700;
+      }
+      h3{
+        font-weight: 300;
+      }
+    }
     .article{
       padding:2em;
       img{
         width: 100%;
         border-radius: 10px 10px 0 0;
+      }
+    }
+  }
+
+  .post_row{
+    .main_post_content{
+      img{
+        padding: 3em 0;
+        width:100%;
+      }
+    }
+    .posts_panel{
+      h2{
+        padding-bottom: 1em;
+      }
+      img{
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+      }
+      .first_extra_post,.second_extra_post,.third_extra_post{
+        padding: 0 0 2em 0;
+      }
+    }
+    .post_description{
+      p{
+        padding-bottom: 2em;
+        text-align: justify;
+      }
+    }
+    .voting_statistics{
+      p{
+        display: inline;
+        padding-right: 1em;
       }
     }
   }

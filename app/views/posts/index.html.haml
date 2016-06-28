@@ -1,7 +1,13 @@
 .row
+  -if user_signed_in?
+    .welcome
+      %h2
+        Hello
+        = current_user.name
+      %h3 Take inspiration and make that day awesome.
   - @posts.each do |post|
     .col-md-4.article
-      = link_to (image_tag post.image.url(:small))
+      = link_to (image_tag post.image.url(:small)), post
       %h2= link_to post.title, post
       %p
         Added by
