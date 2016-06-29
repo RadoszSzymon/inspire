@@ -44,57 +44,62 @@
       %h2.comment_count= pluralize(@post.comments.count, "Comment")
       - @comments.each do |comment|
         .comment
-          %p.username= comment.user.name
-          %p.content= comment.content
+          %h4.username= comment.user.name
+          %h3.content= comment.content
 
     - if user_signed_in?
       = render 'comments/form'
 
   .col-md-4.posts_panel
-    %h2 You can like also
+    .posts_panel_title
+      %h2 You can like also
 
     .first_extra_post
-      = link_to (image_tag @random_post.image.url(:small)), post_path(@random_post)
-      %h3
-        =link_to @random_post.title, post_path(@random_post)
-      %p
-        Added by
-        = @random_post.user.name
-      %p
-        = @random_post.comments.count
-        =fa_icon "comment-o"
-        Comments
-      %p
-        = @random_post.get_likes.size
-        =fa_icon "thumbs-o-up"
-        Likes
+      -if @random_post
+        = link_to (image_tag @random_post.image.url(:small)), post_path(@random_post)
+        %h3
+          =link_to @random_post.title, post_path(@random_post)
+        %p
+          Added by
+          = @random_post.user.name
+        %p
+          = @random_post.comments.count
+          =fa_icon "comment-o"
+          Comments
+        %p
+          = @random_post.get_likes.size
+          =fa_icon "thumbs-o-up"
+          Likes
+
     .second_extra_post
-      = link_to (image_tag @random_post2.image.url(:small)), post_path(@random_post2)
-      %h3
-        =link_to @random_post2.title, post_path(@random_post2)
-      %p
-        Added by
-        = @random_post2.user.name
-      %p
-        = @random_post2.comments.count
-        =fa_icon "comment-o"
-        Comments
-      %p
-        = @random_post2.get_likes.size
-        =fa_icon "thumbs-o-up"
-        Likes
+      -if @random_post2
+        = link_to (image_tag @random_post2.image.url(:small)), post_path(@random_post2)
+        %h3
+          =link_to @random_post2.title, post_path(@random_post2)
+        %p
+          Added by
+          = @random_post2.user.name
+        %p
+          = @random_post2.comments.count
+          =fa_icon "comment-o"
+          Comments
+        %p
+          = @random_post2.get_likes.size
+          =fa_icon "thumbs-o-up"
+          Likes
     .third_extra_post
-      = link_to (image_tag @random_post3.image.url(:small)), post_path(@random_post3)
-      %h3
-        =link_to @random_post3.title, post_path(@random_post3)
-      %p
-        Added by
-        = @random_post3.user.name
-      %p
-        = @random_post3.comments.count
-        =fa_icon "comment-o"
-        Comments
-      %p
-        = @random_post3.get_likes.size
-        =fa_icon "thumbs-o-up"
-        Likes
+      -if @random_post3
+        = link_to (image_tag @random_post3.image.url(:small)), post_path(@random_post3)
+        %h3
+          =link_to @random_post3.title, post_path(@random_post3)
+        %p
+          Added by
+          = @random_post3.user.name
+        %p
+          = @random_post3.comments.count
+          =fa_icon "comment-o"
+          Comments
+        %p
+          = @random_post3.get_likes.size
+          =fa_icon "thumbs-o-up"
+          Likes

@@ -5,9 +5,17 @@
         Hello
         = current_user.name
       %h3 Take inspiration and make that day awesome.
+  - else
+    .welcome
+      %h1 Welcome on Inspire
+      %h3 Log in to your account or sign up for free
+      .buttons
+        = link_to "Log In", new_user_session_path, class: "btn btn-default log_in_button"
+        = link_to "Sign Up", new_user_registration_path, class: "btn btn-default sign_up_button"
   - @posts.each do |post|
     .col-md-4.article
-      = link_to (image_tag post.image.url(:small)), post
+      .image
+        = link_to (image_tag post.image.url(:small)), post
       %h2= link_to post.title, post
       %p
         Added by
