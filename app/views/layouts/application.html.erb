@@ -21,7 +21,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Inspire", root_path %></li>
+        <li><%= link_to "Inspire", root_path, class: "logo" %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Add new", new_post_path %></li>
         <% end %>

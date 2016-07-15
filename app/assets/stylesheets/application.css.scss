@@ -34,12 +34,27 @@ abbr{
   display: none;
 }
 
+.notice, .alert{
+  text-align: center;
+}
+
 .navbar-default, .alert{
   margin:0;
 }
 
 .container{
+
+  .container-fluid{
+    background-color: #ECECEC;
+    .logo{
+      a{
+        font-weight: 700;
+      }
+    }
+  }
   .form{
+    padding-bottom: 4em;
+
     h1{
       font-weight: 700;
       text-align: center;
@@ -85,18 +100,18 @@ abbr{
       .image img{
         width: 100%;
         border-radius: 10px 10px 0 0;
-        -webkit-transition: all 1s ease; /* Safari and Chrome */
-        -moz-transition: all 1s ease; /* Firefox */
-        -ms-transition: all 1s ease; /* IE 9 */
-        -o-transition: all 1s ease; /* Opera */
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -o-transition: all 1s ease;
         transition: all 1s ease;
       }
       .image:hover img{
         opacity: .9;
-        -webkit-transform:scale(1.05); /* Safari and Chrome */
-        -moz-transform:scale(1.05); /* Firefox */
-        -ms-transform:scale(1.05); /* IE 9 */
-        -o-transform:scale(1.05); /* Opera */
+        -webkit-transform:scale(1.05);
+        -moz-transform:scale(1.05);
+        -ms-transform:scale(1.05);
+        -o-transform:scale(1.05);
          transform:scale(1.05);
       }
     }
@@ -147,6 +162,7 @@ abbr{
     .post_description{
       p{
         padding-bottom: 2em;
+        font-size: 1.4em;
         text-align: justify;
       }
     }
@@ -154,19 +170,20 @@ abbr{
       p{
         display: inline;
         padding-right: 1em;
+        font-size:1.5em;
       }
     }
   }
-}
+}/* END OF CONTAINER */
 
 .footer{
-  background-color: #f4f4f4;
+  background-color: #ECECEC;
   padding:3em 0;
   width:100%;
   margin:0;
   display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+  justify-content: center;
+  align-items: center;
   .icon{
     font-size: 3em;
     color: #919191;
@@ -177,4 +194,4 @@ abbr{
   h2{
     margin-top: 0;
   }
-}
+}/* END OF FOOTER */
