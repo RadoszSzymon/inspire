@@ -2,6 +2,6 @@
   = f.input :image
   = f.input :title
   = f.input :link
-  = f.input :description
+  = f.bootsy_area :description, editor_options: { image: false }
 
   = f.button :submit, class: "btn btn-default"
