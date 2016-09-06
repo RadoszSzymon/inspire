@@ -13,7 +13,7 @@
         = link_to "Log In", new_user_session_path, class: "btn btn-default log_in_button"
         = link_to "Sign Up", new_user_registration_path, class: "btn btn-default sign_up_button"
   - @posts.each do |post|
-    .col-md-4.article
+    .col-sm-4.article
       .image
         = link_to (image_tag post.image.url(:small)), post
       %h2= link_to post.title, post

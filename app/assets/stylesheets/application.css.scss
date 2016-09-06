@@ -43,7 +43,6 @@ abbr{
 }
 
 .container{
-
   .container-fluid{
     background-color: #ECECEC;
     .logo{
@@ -66,8 +65,14 @@ abbr{
       font-size: 1em;
       font-weight: 300;
     }
+    textarea{
+      resize:none;
+      height: 20vh;
+      width: 100%;
+    }
     input{
       margin-bottom: .6em;
+      width: 100%;
     }
     .hint{
       padding-left:1em;
