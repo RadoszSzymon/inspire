@@ -14,7 +14,7 @@
  *= require_self
  *= require bootsy
  */
- 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
@@ -40,8 +40,16 @@ abbr{
   text-align: center;
 }
 
-.navbar-default, .alert{
-  margin:0;
+.navbar{
+  .navbar-default, .alert{
+    margin:0;
+  }
+
+  .logo{
+    img{
+          padding-top: 0.5em;
+      }
+  }
 }
 
 .container{

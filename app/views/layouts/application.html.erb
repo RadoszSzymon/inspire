@@ -21,13 +21,11 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Inspire", root_path, class: "logo" %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "Add new", new_post_path %></li>
-        <% end %>
+        <%= link_to image_tag("logo1.png"), root_path, class:"logo" %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li><%= link_to "Add new", new_post_path %></li>
           <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete  %></li>
           <li><%= link_to current_user.name, edit_user_registration_path %></li>
         <% else %>
