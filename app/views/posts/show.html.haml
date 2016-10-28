@@ -6,7 +6,7 @@
       = @post.user.name
       = time_ago_in_words(@post.created_at)
 
-    = link_to "See inspiration", @post.link, class: "btn btn-default link_to_post"
+    = link_to "See inspiration", @post.link, class: "btn btn-default link_to_post", target:"_blank"
 
     = image_tag @post.image.url(:medium)
 
@@ -30,6 +30,7 @@
         = @post.get_downvotes.size
         =fa_icon "thumbs-o-down"
         Dislikes
+    .line
     %h3 Do you like it?
     .btn.btn-default
       = link_to like_post_path(@post), method: :get, class: "data" do
@@ -39,7 +40,7 @@
       = link_to dislike_post_path(@post), method: :get, class: "data" do
         %i.fa.fa-thumbs-o-down
         =pluralize(@post.get_downvotes.size, "Dislike")
-
+    .line
     #comment
       %h2.comment_count= pluralize(@post.comments.count, "Comment")
       - @comments.each do |comment|
@@ -49,7 +50,6 @@
 
     - if user_signed_in?
       = render 'comments/form'
-
   .col-md-4.posts_panel
     .posts_panel_title
       %h2 You can like also
@@ -70,7 +70,6 @@
           = @random_post.get_likes.size
           =fa_icon "thumbs-o-up"
           Likes
-
     .second_extra_post
       -if @random_post2
         = link_to (image_tag @random_post2.image.url(:small)), post_path(@random_post2)

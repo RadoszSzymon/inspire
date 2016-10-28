@@ -100,6 +100,7 @@ abbr{
     .welcome{
       text-align: center;
       padding-bottom: 1em;
+      max-height: 90vh;
       h2{
         font-weight: 700;
       }
@@ -134,7 +135,18 @@ abbr{
 
   .post_row{
     .main_post_content{
+      .line{
+        border-top: 1px solid #ECECEC;
+        width:10%;
+        margin: 1.3em 0;
+      }
+      .btn-default{
+        margin-bottom:0.4em;
+      }
       #comment{
+        .comment_count{
+          margin-top: 0;
+        }
         .content{
           padding-left: 1em;
         }
