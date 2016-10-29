@@ -7,5 +7,8 @@ ROR app to share your design ideas
 * WOW.js
 * HAML 4.0.7
 
+## Inspire run on Heroku
+https://glacial-lowlands-72248.herokuapp.com/
+
 ## Author
 * Radosz Szymon
