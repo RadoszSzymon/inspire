@@ -8,33 +8,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!-- Static navbar -->
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to image_tag("logo1.png"), root_path, class:"logo" %>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-     
-      <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
-          <li><%= link_to "Add new", new_post_path %></li>
-          <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete  %></li>
-          <li><%= link_to current_user.name, edit_user_registration_path %></li>
-        <% else %>
-          <li><%= link_to "Log In", new_user_session_path %></li>
-          <li><%= link_to "Sign In", new_user_registration_path %></li>
-        <% end %>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container-fluid -->
-</nav>
+  
+<%= render 'layouts/menu' %>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
@@ -43,29 +18,7 @@
   <%= yield %>
 </div>
 
-<div class="row footer">
-  <div class="col-md-8 col-md-offset-1 footer_content">
-    <h2>Inspire</h2>
-    <h4>Share your ideas</p>
-    <h6>&copy; 2016 Inspire. All right reserved.</p>
-    <h6>Created by <%= link_to "Radosz Szymon", "https://github.com/RadoszSzymon", target:"_blank" %></h6>
-  </div>
-  <div class="col-md-1">
-    <%= link_to "https://github.com/RadoszSzymon", target:"_blank" do %>
-      <i class="fa fa-facebook-official icon" aria-hidden="true"></i>
-    <% end %>
-  </div>
-  <div class="col-md-1">
-    <%= link_to "https://github.com/RadoszSzymon", target:"_blank" do %>
-      <i class="fa fa-twitter-square icon" aria-hidden="true"></i>
-    <% end %>
-  </div>
-</div>
-
-<!-- wow.js library -->
-<script>
-	new WOW().init();
-</script>
+<%= render 'layouts/footer' %>
 
 </body>
 </html>
