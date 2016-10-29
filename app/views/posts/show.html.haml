@@ -45,8 +45,11 @@
       %h2.comment_count= pluralize(@post.comments.count, "Comment")
       - @comments.each do |comment|
         .comment
-          %h4.username= comment.user.name
+          %h4.username
+            = comment.user.name
+            wrote:
           %h3.content= comment.content
+        .line
 
     - if user_signed_in?
       = render 'comments/form'

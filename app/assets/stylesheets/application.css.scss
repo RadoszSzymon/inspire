@@ -138,6 +138,9 @@ abbr{
 
   .post_row{
     .main_post_content{
+      label{
+        display:hidden;
+      }
       .line{
         border-top: 1px solid #ECECEC;
         width:10%;
@@ -149,12 +152,19 @@ abbr{
       #comment{
         .comment_count{
           margin-top: 0;
+          font-size: 1.3em;
         }
         .content{
           padding-left: 1em;
+          font-size: 1.2em;
         }
         .comment{
           padding:1em 0;
+          
+          .username{
+            font-weight: 700;
+            font-size: 1.5em;
+          }
         }
       }
       label{
@@ -165,7 +175,7 @@ abbr{
         font-weight: 300;
       }
       textarea{
-        width:70%;
+        width:100%;
         height:10em;
         resize: none;
       }
