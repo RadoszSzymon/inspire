@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootsy
+//= require wow
 //= require turbolinks
 //= require_tree .

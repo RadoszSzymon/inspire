@@ -16,15 +16,15 @@
     .col-sm-4.article
       .image
         = link_to (image_tag post.image.url(:small)), post
-      %h2= link_to post.title, post
-      %p
+      %h2.wow.zoomIn{:data => {:duration => "1s"}}= link_to post.title, post
+      %p.wow.zoomIn{:data => {:duration => "1s"}}
         Added by
         = post.user.name
-      %p
+      %p.wow.zoomIn{:data => {:duration => "1s"}}
         = post.comments.count
         =fa_icon "comment-o"
         Comments
-      %p
+      %p.wow.zoomIn{:data => {:duration => "1s"}}
         = post.get_likes.size
         =fa_icon "thumbs-o-up"
         Likes
