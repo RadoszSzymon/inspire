@@ -20,6 +20,8 @@
 @import "bootstrap";
 @import "font-awesome";
 
+$light_gray: #ECECEC;
+
 *{
   font-family: 'Open Sans', sans-serif;
 }
@@ -57,7 +59,7 @@ abbr{
 
 .container{
   .container-fluid{
-    background-color: #ECECEC;
+    background-color: $light_gray;
     .logo{
       a{
         font-weight: 700;
@@ -142,7 +144,7 @@ abbr{
         display:hidden;
       }
       .line{
-        border-top: 1px solid #ECECEC;
+        border-top: 1px solid $light_gray;
         width:10%;
         margin: 1.3em 0;
       }
@@ -217,7 +219,7 @@ abbr{
 }/* END OF CONTAINER */
 
 .footer{
-  background-color: #ECECEC;
+  background-color: $light_gray;
   padding:3em 0;
   width:100%;
   margin:0;
